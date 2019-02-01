@@ -1,0 +1,27 @@
+---
+:apprentices:
+- !ruby/object:Apprentice
+  first_name: a
+  last_name: d
+  dob: e
+  phone: w
+  email: s
+- !ruby/object:Apprentice
+  first_name: a
+  last_name: s
+  dob: d
+  phone: e
+  email: c
+:mentors:
+- !ruby/object:Mentor
+  first_name: r
+  last_name: f
+  dob: ''
+  phone: g
+  email: b
+- !ruby/object:Mentor
+  first_name: f
+  last_name: d
+  dob: c
+  phone: w
+  email: e
