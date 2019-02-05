@@ -1,12 +1,10 @@
 require 'yaml'
 require './apprentice.rb'
 require './mentor.rb'
-require 'securerandom'
 
 data_struture = {
   :apprentices => [],
-  :mentors => [],
-  :assigned_apprentices => []
+  :mentors => []
 }
 
 loop do
@@ -34,8 +32,6 @@ loop do
         new_apprentice.phone = gets.chomp
         print "Email: "
         new_apprentice.email = gets.chomp
-        print "id: "
-        new_apprentice.id = SecureRandom.uuid
         data_struture[:apprentices] << new_apprentice
         File.write("./input_details.yml", YAML.dump(data_struture), mode: 'w')
 
@@ -52,7 +48,6 @@ loop do
         new_mentor.phone = gets.chomp
         print "Email: "
         new_mentor.email = gets.chomp
-        print "Assigned Apprentices: "
         data_struture[:mentors] << new_mentor
         File.write("./input_details.yml", YAML.dump(data_struture), mode: 'w')
 
@@ -81,10 +76,10 @@ loop do
             puts "\n"
             puts "Mentor detail is:"
             puts "\n"
-            format = '%-12s %-12s %-12s %-8s %-10s %-10s'
-            puts format % ['First Name', 'Last Name', 'Date of Birth', 'Phone', 'Email', 'Assigned apprentices']           
+            format = '%-12s %-12s %-12s %-15s %-15s'
+            puts format % ['First Name', 'Last Name', 'Date of Birth', 'Phone', 'Email']           
             mentors.each do |b|
-                puts format % [b.first_name, b.last_name, b.dob, b.phone, b.email, b.assigned_apprentices]
+                puts format % [b.first_name, b.last_name, b.dob, b.phone, b.email]
             end
         end
 

@@ -2,26 +2,39 @@
 :apprentices:
 - !ruby/object:Apprentice
   first_name: a
-  last_name: d
-  dob: e
-  phone: w
-  email: s
+  last_name: h
+  dob: j
+  phone: k
+  email: l
+  id: 1977-02-01 13:30:57.879226922 +05:30
 - !ruby/object:Apprentice
   first_name: a
   last_name: s
   dob: d
   phone: e
-  email: c
+  email: f
+  id: 1549365959
+- !ruby/object:Apprentice
+  first_name: w
+  last_name: s
+  dob: d
+  phone: e
+  email: f
+  id: 1549366017
 :mentors:
 - !ruby/object:Mentor
-  first_name: r
-  last_name: f
-  dob: ''
-  phone: g
-  email: b
+  first_name: h
+  last_name: k
+  dob: l
+  phone: o
+  email: p
+  apprentices: []
 - !ruby/object:Mentor
-  first_name: f
-  last_name: d
-  dob: c
-  phone: w
-  email: e
+  first_name: i
+  last_name: l
+  dob: o
+  phone: p
+  email: g
+  apprentices: []
+:assigned_apprentices: []
+
