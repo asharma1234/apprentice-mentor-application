@@ -1,12 +1,13 @@
 class Apprentice
-    attr_accessor :first_name, :last_name, :dob, :phone, :email
+    attr_accessor :first_name, :last_name, :dob, :phone, :email, :id
     
-def initialize(first_name = "", last_name = "", dob = "", phone = "", email = "")
-    @first_name = first_name
-    @last_name = last_name
-    @dob = dob
-    @phone = phone
-    @email = email
+ def initialize(first_name = "", last_name = "", dob = "", phone = "", email = "", id = "")
+     @first_name = first_name
+     @last_name = last_name
+     @dob = dob
+     @phone = phone
+     @email = email
+     @id = id
  
-  end #end of initialize
- end #end of class Details
+ end #end of initialize
+end #end of class Details

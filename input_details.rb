@@ -1,10 +1,12 @@
 require 'yaml'
 require './apprentice.rb'
 require './mentor.rb'
+require 'securerandom'
 
 data_struture = {
   :apprentices => [],
-  :mentors => [] 
+  :mentors => [],
+  :assigned_apprentices => []
 }
 
 loop do
@@ -20,35 +22,38 @@ loop do
 
     case input
     when '1'
-        ap = Apprentice.new
+        new_apprentice = Apprentice.new
         puts "Tell me appprentice details"
         print "First Name: "
-        ap.first_name = gets.chomp
+        new_apprentice.first_name = gets.chomp
         print "Last Name: "
-        ap.last_name = gets.chomp
+        new_apprentice.last_name = gets.chomp
         print "Date of Birth: "
-        ap.dob = gets.chomp
+        new_apprentice.dob = gets.chomp
         print "Phone Number: "
-        ap.phone = gets.chomp
+        new_apprentice.phone = gets.chomp
         print "Email: "
-        ap.email = gets.chomp
-        data_struture[:apprentices] << ap
+        new_apprentice.email = gets.chomp
+        print "id: "
+        new_apprentice.id = SecureRandom.uuid
+        data_struture[:apprentices] << new_apprentice
         File.write("./input_details.yml", YAML.dump(data_struture), mode: 'w')
-     
+
     when '2'
-        men = Mentor.new
+        new_mentor = Mentor.new
         puts "Tell me mentor details"
         print "First Name: "
-        men.first_name = gets.chomp
+        new_mentor.first_name = gets.chomp
         print "Last Name: "
-        men.last_name = gets.chomp
+        new_mentor.last_name = gets.chomp
         print "Date of Birth: "
-        men.dob = gets.chomp
+        new_mentor.dob = gets.chomp
         print "Phone Number: "
-        men.phone = gets.chomp
+        new_mentor.phone = gets.chomp
         print "Email: "
-        men.email = gets.chomp
-        data_struture[:mentors] << men
+        new_mentor.email = gets.chomp
+        print "Assigned Apprentices: "
+        data_struture[:mentors] << new_mentor
         File.write("./input_details.yml", YAML.dump(data_struture), mode: 'w')
 
     when '3'
@@ -64,7 +69,7 @@ loop do
             puts format % ['First Name', 'Last Name', 'Date of Birth', 'Phone', 'Email']           
             apprentices.each do |a|
                 puts format % [a.first_name, a.last_name, a.dob, a.phone, a.email]
-            end 
+            end
         end
         
     when '4'
@@ -76,10 +81,10 @@ loop do
             puts "\n"
             puts "Mentor detail is:"
             puts "\n"
-            format = '%-12s %-12s %-12s %-15s %-15s'
-            puts format % ['First Name', 'Last Name', 'Date of Birth', 'Phone', 'Email']           
+            format = '%-12s %-12s %-12s %-8s %-10s %-10s'
+            puts format % ['First Name', 'Last Name', 'Date of Birth', 'Phone', 'Email', 'Assigned apprentices']           
             mentors.each do |b|
-                puts format % [b.first_name, b.last_name, b.dob, b.phone, b.email]
+                puts format % [b.first_name, b.last_name, b.dob, b.phone, b.email, b.assigned_apprentices]
             end
         end
 
@@ -88,4 +93,4 @@ loop do
         break
     end
 end
-        
+
