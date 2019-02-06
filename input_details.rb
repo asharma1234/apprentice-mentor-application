@@ -13,7 +13,8 @@ loop do
     puts "2. Add Mentor"
     puts "3. List of Apprentice"
     puts "4. List of Mentors"
-    puts "5. Exit"
+    puts "5. Assign a mentor"
+    puts "6. Exit"
     puts "\n"
     puts "Enter your choice:"
     input = gets.chomp
@@ -84,8 +85,21 @@ loop do
         end
 
     when '5'
+        if(!File.zero?("./input_details.yml"))
+            data_structure = YAML.load(File.read("./input_details.yml"))
+            apprentices = data_structure[:apprentices]
+            puts "\n"
+            puts "Display all the apprentices"
+            puts "\n"
+            format = '%-12s %-12s %-12s'
+            puts format % ['SN', 'First Name', 'Last Name']
+            apprentices.each_with_index do |g, i|
+                puts format % [i+=1, g.first_name, g.last_name]
+            end
+        end
+
+    when '6'
         exit()
         break
     end
 end
-
