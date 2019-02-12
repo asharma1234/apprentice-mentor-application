@@ -1,5 +1,5 @@
 class Apprentice
-    attr_accessor :first_name, :last_name, :dob, :phone, :email, :id
+    attr_accessor :first_name, :last_name, :dob, :phone, :email, :id, :mentor
     
  def initialize(first_name = "", last_name = "", dob = "", phone = "", email = "", id = Time.now.to_i)
      @first_name = first_name

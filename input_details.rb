@@ -96,6 +96,11 @@ loop do
             apprentices.each_with_index do |g, i|
                 puts format % [i+=1, g.first_name, g.last_name]
             end
+            puts "Select a apprentice"
+            input = gets.chomp
+            input_index = input.to_i - 1 
+            selected_apprentice = apprentices[input_index]
+            puts "selected apprentice is #{selected_apprentice.inspect}"
         end
 
     when '6'
