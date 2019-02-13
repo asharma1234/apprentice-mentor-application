@@ -5,7 +5,7 @@ require './mentor.rb'
 data_struture = {
   :apprentices => [],
   :mentors => []
-}
+  }
 
 loop do
     puts "Welcome to the details"
@@ -14,7 +14,8 @@ loop do
     puts "3. List of Apprentice"
     puts "4. List of Mentors"
     puts "5. Assign a mentor"
-    puts "6. Exit"
+    puts "6. Show Apprentice with assigned mentor"
+    puts "7. Exit"
     puts "\n"
     puts "Enter your choice:"
     input = gets.chomp
@@ -97,13 +98,37 @@ loop do
                 puts format % [i+=1, g.first_name, g.last_name]
             end
             puts "Select a apprentice"
-            input = gets.chomp
+            input = gets.chomp           
             input_index = input.to_i - 1 
             selected_apprentice = apprentices[input_index]
-            puts "selected apprentice is #{selected_apprentice.inspect}"
+            puts "Selected apprentice is #{selected_apprentice.inspect}"
+            
+            puts "\n"
+            mentors = data_structure[:mentors]
+            puts "Mentors' list"
+            puts "\n"
+            format = '%-12s %-12s %-12s'
+            puts format % ['SN', 'First Name', 'Last Name']
+            mentors.each_with_index do |h, j|
+                puts format % [j+=1, h.first_name, h.last_name]
+            end
+            puts "Select a mentor for #{selected_apprentice}: "
+            input = gets.chomp
+            input_index = input.to_i - 1 
+            selected_mentor = mentors[input_index]
+            puts "Selected mentor is #{selected_mentor.inspect}"
+            assigned_mentor = Apprentice.new
+            assigned_mentor.mentor = selected_mentor
+            puts assigned_mentor.mentor
+
         end
 
     when '6'
+        #format = '%-20s %-20s'
+        #puts format % ['Apprentice Name', 'Mentor Name']
+        #puts format % [selected_apprentice, assigned_mentor]
+
+    when '7'
         exit()
         break
     end
