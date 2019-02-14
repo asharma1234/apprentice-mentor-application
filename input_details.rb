@@ -4,7 +4,9 @@ require './mentor.rb'
 
 data_struture = {
   :apprentices => [],
-  :mentors => []
+  :mentors => [],
+  #:selected_apprentices => [],
+  #:selected_mentors => []
   }
 
 loop do
@@ -87,8 +89,8 @@ loop do
 
     when '5'
         if(!File.zero?("./input_details.yml"))
-            data_structure = YAML.load(File.read("./input_details.yml"))
-            apprentices = data_structure[:apprentices]
+            data_struture = YAML.load(File.read("./input_details.yml"))
+            apprentices = data_struture[:apprentices]
             puts "\n"
             puts "Display all the apprentices"
             puts "\n"
@@ -99,12 +101,12 @@ loop do
             end
             puts "Select a apprentice"
             input = gets.chomp           
-            input_index = input.to_i - 1 
+            input_index = input.to_i - 1
             selected_apprentice = apprentices[input_index]
             puts "Selected apprentice is #{selected_apprentice.inspect}"
-            
+
             puts "\n"
-            mentors = data_structure[:mentors]
+            mentors = data_struture[:mentors]
             puts "Mentors' list"
             puts "\n"
             format = '%-12s %-12s %-12s'
@@ -117,16 +119,22 @@ loop do
             input_index = input.to_i - 1 
             selected_mentor = mentors[input_index]
             puts "Selected mentor is #{selected_mentor.inspect}"
+            puts "\n"
             assigned_mentor = Apprentice.new
-            assigned_mentor.mentor = selected_mentor
-            puts assigned_mentor.mentor
-
+            assigned_mentor.mentors = selected_mentor
+            puts assigned_mentor.mentors.inspect
         end
 
     when '6'
-        #format = '%-20s %-20s'
-        #puts format % ['Apprentice Name', 'Mentor Name']
-        #puts format % [selected_apprentice, assigned_mentor]
+        if(!data_struture.empty?)
+            a = data_struture[:apprentices]
+            puts a.inspect
+            t = a.select { |item| item.mentors.count > 0 }
+            puts t.inspect
+
+            #b = data_struture[:mentors]
+            #puts b.inspect
+        end
 
     when '7'
         exit()

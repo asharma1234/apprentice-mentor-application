@@ -1,33 +1,48 @@
 ---
 :apprentices:
 - !ruby/object:Apprentice
-  first_name: d
-  last_name: s
-  dob: x
-  phone: c
-  email: f
-  id: 1550048657
-  mentor: []
+  first_name: anuja
+  last_name: sharma
+  dob: '1'
+  phone: '2'
+  email: '3'
+  id: 1550136068
+  mentors: []
 - !ruby/object:Apprentice
-  first_name: d
-  last_name: c
-  dob: f
-  phone: v
-  email: g
-  id: 1550048661
-  mentor: []
+  first_name: bijay
+  last_name: upreti
+  dob: '1'
+  phone: '2'
+  email: '3'
+  id: 1550136077
+  mentors: []
+- !ruby/object:Apprentice
+  first_name: mahan
+  last_name: nepal
+  dob: '1'
+  phone: '2'
+  email: '3'
+  id: 1550136086
+  mentors: []
 :mentors:
 - !ruby/object:Mentor
-  first_name: f
-  last_name: c
-  dob: d
-  phone: e
-  email: s
-  apprentice: []
+  first_name: kapil
+  last_name: nakhwa
+  dob: '1'
+  phone: '2'
+  email: '3'
+  apprentices: []
 - !ruby/object:Mentor
-  first_name: c
-  last_name: d
-  dob: f
-  phone: vr
-  email: r
-  apprentice: []
+  first_name: ganesh
+  last_name: dai
+  dob: '1'
+  phone: '2'
+  email: '5'
+  apprentices: []
+- !ruby/object:Mentor
+  first_name: aman
+  last_name: maharjan
+  dob: '1'
+  phone: '2'
+  email: '6'
+  apprentices: []
